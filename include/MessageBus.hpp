@@ -11,7 +11,7 @@ using namespace std;
 class MessageBus: NonCopyable
 {
 public:
-	//注册消息
+	
 	template<typename F>
 	void Attach(F&& f, const string& strTopic="")
 	{
@@ -19,7 +19,7 @@ public:
 		Add(strTopic, std::move(func));
 	}
 
-	//发送消息
+	
 	template<typename R>
 	void SendReq(const string& strTopic = "")
 	{
@@ -45,7 +45,7 @@ public:
 		}
 	}
 
-	//移除某个主题, 需要主题和消息类型
+	
 	template<typename R, typename... Args>
 	void Remove(const string& strTopic = "")
 	{
