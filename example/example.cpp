@@ -66,7 +66,11 @@ void TestBus()
     Bus bus;
     Truck truck;
     //subject.SendReq(Topic);
-    subject.SendReq("");
+	for (int i = 0; i < 10000; i++)
+	{
+		subject.SendReq("");
+	}
+    
 }
 int main()
 {
