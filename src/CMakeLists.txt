@@ -12,6 +12,7 @@ MESSAGE(STATUS "PROJECT_SOURCE_DIR:" ${PROJECT_SOURCE_DIR})
 
 # Where header files can be found.
 INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/include)
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/third_party/threadPool/include)
 
 # Include sub directory adapters and utils.
 #ADD_SUBDIRECTORY(utils)

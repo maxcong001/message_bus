@@ -1,10 +1,16 @@
 #pragma once
 #include <functional>
 #include <tuple>
+#include <type_traits>
 
 template<typename T>
 struct function_traits;
 
+template<typename T >
+using remove_reference_t = typename std::remove_reference<T>::type;
+
+template<typename T >
+using remove_cv_t = typename std::remove_cv<T>::type;
 
 template<typename Ret, typename... Args>
 struct function_traits<Ret(Args...)>
@@ -23,7 +29,7 @@ public:
 		using type = typename std::tuple_element<I, std::tuple<Args...>>::type;
 	};
 	
-	typedef std::tuple<std::remove_cv_t<std::remove_reference_t<Args>>...> tuple_type;
+	typedef std::tuple<remove_cv_t<remove_reference_t<Args>>...> tuple_type;
 };
 
 
